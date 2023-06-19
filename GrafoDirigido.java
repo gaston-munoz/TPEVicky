@@ -183,10 +183,17 @@ public class GrafoDirigido<T> implements Grafo<T> {
 		Iterator<Integer> it = this.obtenerVertices();
 		while(it.hasNext()) {
 			Integer key = it.next();
-			System.out.println("Clave" + key + "--> Valor: "+ vertices.get(key));
+			System.out.println("Vertice" + key + "--> Arcos: "+ vertices.get(key) );
 		}
 	}
 	
+	public void imprimirEtiquetaArco() {
+		Iterator<Arco<T>> it = this.obtenerArcos();
+		while(it.hasNext()) {
+			Arco<T> key = it.next();
+			System.out.println("Arco" + key + "--> etiqueta: "+key.getEtiqueta() );
+		}
+	}
 	public String toString() {
 		return this.vertices.toString() ;
 	}

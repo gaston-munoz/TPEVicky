@@ -8,10 +8,11 @@ public class CSVReader {
 private String path;
 	
 	public CSVReader(String path) {
+		
 		this.path = path;
 	}
 	
-	public void read() {
+	public void read(GrafoNoDirigido<Integer> g) {
 		
 		// Obtengo una lista con las lineas del archivo
 		// lines.get(0) tiene la primer linea del archivo
@@ -23,6 +24,10 @@ private String path;
 			Integer origen = Integer.parseInt(line[0].trim().substring(1));
 			Integer destino = Integer.parseInt(line[1].trim().substring(1));
 			Integer etiqueta = Integer.parseInt(line[2].trim());
+			
+			g.agregarVertice(origen);
+			g.agregarVertice(destino);
+			g.agregarArco(origen, destino, etiqueta);
 			
 			// Aca instanciar lo que necesiten en base a los datos leidos
 		}

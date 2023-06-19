@@ -3,11 +3,16 @@ package TPE2;
 public class Main {
 	public static void main(String[] args) {
 		
-		GrafoNoDirigido<Estacion> g = new Grafo<>();
+		GrafoNoDirigido<Integer> g = new GrafoNoDirigido<>();
 
-		String path = "PATH/AL/ARCHIVO";
+		String path = "C:/Users/vicky/OneDrive/Escritorio/datasets/dataset2.txt";
 		CSVReader reader = new CSVReader(path);
-		reader.read();
+		reader.read(g);
+		
+		System.out.println(g);
+		
+		g.imprimirGrafo();
+		g.imprimirEtiquetaArco();
 		
 	}
 
