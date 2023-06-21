@@ -179,13 +179,13 @@ public class GrafoDirigido<T> implements Grafo<T> {
 		return arcos.iterator();
 	}
 	
-	public void imprimirGrafo() {
-		Iterator<Integer> it = this.obtenerVertices();
-		while(it.hasNext()) {
-			Integer key = it.next();
-			System.out.println("Vertice" + key + "--> Arcos: "+ vertices.get(key) );
+		public void imprimirGrafo() {
+			Iterator<Integer> it = this.obtenerVertices();
+			while(it.hasNext()) {
+				Integer key = it.next();
+				System.out.println("Vertice" + key + "--> Arcos: "+ vertices.get(key) );
+			}
 		}
-	}
 	
 	public void imprimirEtiquetaArco() {
 		Iterator<Arco<T>> it = this.obtenerArcos();
@@ -196,6 +196,26 @@ public class GrafoDirigido<T> implements Grafo<T> {
 	}
 	public String toString() {
 		return this.vertices.toString() ;
+	}
+	
+	public boolean isConexo() {
+		Sets componentes = new Sets(this.cantidadVertices());
+		Iterator<Arco<T>> it = this.obtenerArcos();
+		if(it != null) {
+			while(it.hasNext()) {
+				Arco<T> arco = it.next();
+				int u = arco.getVerticeOrigen();
+				int v = arco.getVerticeDestino();
+				int representanteU = componentes.find(u); 
+				System.out.println("u:"+representanteU);
+				int representanteV = componentes.find(v);
+				System.out.println("v:"+representanteV);
+				if(representanteU != representanteV) {
+					componentes.union(representanteU, representanteV);
+				}
+			}
+		}
+		return componentes.count() == 1;
 	}
 
 }

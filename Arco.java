@@ -35,6 +35,6 @@ public class Arco<T> {
 	}
 	
 	public String toString() {
-		return "(" + this.verticeOrigen + "," + this.verticeDestino + ")";
+		return "(" + this.verticeOrigen + "," + this.verticeDestino + "," + this.etiqueta + ")";
 	}
 }
