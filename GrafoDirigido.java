@@ -199,7 +199,7 @@ public class GrafoDirigido<T> implements Grafo<T> {
 	}
 	
 	public boolean isConexo() {
-		Sets componentes = new Sets(this.cantidadVertices());
+		UnionFind componentes = new UnionFind(this.cantidadVertices() - 1);
 		Iterator<Arco<T>> it = this.obtenerArcos();
 		if(it != null) {
 			while(it.hasNext()) {

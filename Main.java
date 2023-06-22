@@ -1,7 +1,14 @@
 package TPE2;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Main {
 	public static void main(String[] args) {
+		
+		Set s = new HashSet<>();
+		
+		
 		
 		GrafoNoDirigido<Integer> g2 = new GrafoNoDirigido<>();
 		
@@ -25,9 +32,11 @@ public class Main {
 		
 		g2.imprimirGrafo();
 		//g.imprimirEtiquetaArco();
-		System.out.println(g2.isConexo());
+		//System.out.println(g2.isConexo());
 		//System.out.println(g.isConexo());
+		Greedy greedy = new Greedy();
 		
+		System.out.println(greedy.greedy(g2));
 		
 	}
 
